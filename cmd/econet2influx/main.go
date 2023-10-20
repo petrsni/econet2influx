@@ -7,7 +7,7 @@ import (
 	"os/signal"
 
 	"github.com/alecthomas/kong"
-	"petr.local/econet2influx/internal/app/econet2influx"
+	"github.com/petrsni/econet2influx/internal/app/econet2influx"
 )
 
 func setLog() *slog.Logger {

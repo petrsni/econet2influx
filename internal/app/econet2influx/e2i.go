@@ -45,7 +45,7 @@ func readAndWrite(influx, org, bucket, token, econet, econetusr, econetpw string
 				ticker.Reset(1 * time.Minute)
 				continue
 			}
-			slog.Debug("read from econet")
+			slog.Info("read from econet")
 			// write to influx
 			writePoint(ewapi, d, ctx)
 			ticker.Reset(1 * time.Minute)
