@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log/slog"
 	"os"
 	"os/signal"
@@ -20,11 +21,13 @@ func main() {
 	signal.Notify(term, os.Interrupt)
 	cli := &CLI{}
 	kctx := kong.Parse(cli)
+	slog.Info(fmt.Sprintf("%v", cli.Install.CliParams))
 
 	err := kctx.Run(&econet2influx.AppCtx{
 		Ctx:    ctx,
 		Cancel: cancel,
 		Logger: setLog(),
+		//svc service.Service,
 	})
 	if err != nil {
 		panic(err)
